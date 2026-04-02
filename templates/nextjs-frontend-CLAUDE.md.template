@@ -1,0 +1,147 @@
+# Next.js Frontend — Project CLAUDE.md
+
+> Template for a Next.js frontend application. Customize for your project.
+
+## Project Overview
+
+**Stack:** Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui, Playwright (E2E)
+
+**Architecture:** Server Components by default. Client Components only for interactivity. Server Actions for mutations.
+
+## Critical Rules
+
+### Components
+
+- Server Components: no `'use client'` directive, no `useState`/`useEffect`
+- Client Components: `'use client'` at top, keep minimal — extract logic to hooks
+- UI primitives in `components/ui/` (shadcn/ui) — don't modify these directly
+- Project components in `components/` organized by feature
+
+### Code Style
+
+- Immutable patterns only — spread operator, never mutate state
+- Prefer Zod schemas for input validation (API routes, forms, env vars)
+- Explicit return types on exported functions
+- No `any` — use `unknown` and narrow with type guards
+
+### Data Fetching
+
+- Server Components fetch data directly (no `useEffect`)
+- Client-side data: use React Query or SWR, not raw `fetch` in `useEffect`
+- All user-facing queries must include pagination/limits
+- API responses follow consistent format
+
+### Security
+
+- Never expose server secrets via `NEXT_PUBLIC_` prefix
+- Validate all inputs server-side (never trust client data)
+- Use `getUser()` / session check in protected routes
+- CSRF protection on mutations
+
+## File Structure
+
+```
+src/
+  app/
+    (public)/         # Public pages (landing, pricing, docs)
+    (auth)/           # Auth pages (login, signup)
+    (dashboard)/      # Protected pages
+    api/              # API routes and webhooks
+    layout.tsx        # Root layout with providers
+  components/
+    ui/               # shadcn/ui components (managed by CLI)
+    forms/            # Form components with validation
+    layout/           # Header, sidebar, footer
+  hooks/              # Custom React hooks
+  lib/
+    utils.ts          # General utilities (cn helper, formatters)
+    validators.ts     # Zod schemas
+  types/              # Shared TypeScript types
+  styles/
+    globals.css       # Tailwind directives and custom styles
+```
+
+## Key Patterns
+
+### Server Action Pattern
+
+```typescript
+'use server'
+
+import { z } from 'zod'
+
+const schema = z.object({
+  name: z.string().min(1).max(100),
+})
+
+export async function createItem(formData: FormData) {
+  const parsed = schema.safeParse({ name: formData.get('name') })
+  if (!parsed.success) {
+    return { success: false, error: parsed.error.flatten() }
+  }
+
+  // ... create item
+  return { success: true, data: item }
+}
+```
+
+### Client Component Pattern
+
+```typescript
+'use client'
+
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+
+export function Counter() {
+  const [count, setCount] = useState(0)
+  return <Button onClick={() => setCount(prev => prev + 1)}>{count}</Button>
+}
+```
+
+## Build & Dev Commands
+
+```bash
+# Development
+npm run dev
+
+# Build
+npm run build
+
+# Lint & type check
+npm run lint
+npx tsc --noEmit
+
+# Tests
+npm test                           # Unit tests
+npx playwright test                # E2E tests
+npx playwright test --ui           # E2E with UI
+```
+
+## Environment Variables
+
+```bash
+# App
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# Database
+DATABASE_URL=
+
+# Auth
+AUTH_SECRET=
+```
+
+## Pre-merge Checks
+
+```bash
+npm run lint
+npx tsc --noEmit
+npm test
+npx playwright test
+```
+
+## Git Workflow
+
+- `feat:` new features, `fix:` bug fixes, `refactor:` code changes
+- Feature branches from `main`, PRs required
+- CI: lint, type-check, unit tests, E2E tests

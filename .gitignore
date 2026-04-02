@@ -1,0 +1,46 @@
+# Plugin cache and marketplace data
+plugins/
+
+# Per-project session data and memory
+projects/
+
+# Session transcripts and history
+sessions/
+session-environments/
+
+# File change tracking
+file-history/
+
+# Telemetry and usage
+telemetry/
+usage-data/
+
+# Paste cache
+paste-cache/
+
+# Backups
+*.backup
+
+# Lock files
+*.lock
+
+# IDE process locks
+ide-locks/
+
+# Main config (contains tokens, anonymous IDs)
+../.claude.json
+
+# Plans (session-specific, not portable)
+plans/
+
+# Learned skills (generated per-machine)
+skills/learned/
+
+# Local caches and state
+backups/
+cache/
+debug/
+shell-snapshots/
+todos/
+history.jsonl
+mcp-needs-auth-cache.json

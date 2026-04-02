@@ -1,0 +1,34 @@
+{
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true
+  },
+  "effortLevel": "medium",
+  "disabledMcpjsonServers": ["grafana"],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/skills/strategic-compact/suggest-compact.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/skills/continuous-learning/evaluate-session.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

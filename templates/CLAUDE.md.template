@@ -1,0 +1,50 @@
+# CLAUDE.md
+
+## Project Overview
+
+<!-- What is this project? One paragraph. -->
+
+## Components
+
+<!-- TODO(human): Define your project's components and their relationships.
+     This is the most important section — agents use it to understand scope,
+     determine cross-component impact, and know what to build/verify.
+
+     For each component, include:
+     - Name and location (directory path)
+     - Tech stack / language
+     - What it does (one line)
+     - How it relates to other components
+
+     Example format:
+
+     | Component | Path | Stack | Purpose |
+     |-----------|------|-------|---------|
+     | backend | `server/` | Go | REST API, business logic |
+     | frontend | `web/` | React/TS | SPA, calls backend API |
+     | shared | `pkg/schema/` | Protobuf | Shared types across components |
+-->
+
+## Build Commands
+
+<!-- List build, test, and lint commands for each component.
+     Agents use these for verification after changes. -->
+
+```bash
+# Component 1
+# cd component1 && <build command>
+
+# Component 2
+# cd component2 && <build command>
+```
+
+## Documentation
+
+<!-- Point to key docs. Agents read these for context.
+     Examples: API specs, architecture docs, ADRs -->
+
+## Conventions
+
+<!-- Project-specific patterns agents should follow.
+     Examples: state management choice, naming conventions,
+     error handling patterns, logging format -->

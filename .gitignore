@@ -7,6 +7,7 @@ projects/
 # Session transcripts and history
 sessions/
 session-environments/
+session-env/
 
 # File change tracking
 file-history/
@@ -24,8 +25,9 @@ paste-cache/
 # Lock files
 *.lock
 
-# IDE process locks
+# IDE process locks and state
 ide-locks/
+ide/
 
 # Main config (contains tokens, anonymous IDs)
 ../.claude.json
@@ -45,5 +47,12 @@ cache/
 debug/
 shell-snapshots/
 todos/
+tasks/
 history.jsonl
 mcp-needs-auth-cache.json
+
+# Per-machine permission allowlist
+settings.local.json
+
+# Skill toggle state
+.caveman-active

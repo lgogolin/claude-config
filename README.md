@@ -8,7 +8,6 @@ Version-controlled `~/.claude` configuration: agents, commands, skills, rules, t
 |------|---------|
 | `CLAUDE.md` | Global instructions injected into every session |
 | `settings.json` | Hooks, enabled plugins, theme, effort level |
-| `settings.local.json` | Per-machine permission allowlist |
 | `agents/` | Role-based subagents (architect, implementer, reviewer) |
 | `commands/` | Slash commands (e.g. `/init`) |
 | `skills/` | Skill packs (the `learned/` subdir is gitignored) |
@@ -17,7 +16,7 @@ Version-controlled `~/.claude` configuration: agents, commands, skills, rules, t
 
 ## What's ignored
 
-Session state, cache, telemetry, OAuth credentials, project memory, paste cache, learned skills, plans. See `.gitignore`.
+Session state, cache, telemetry, OAuth credentials, project memory, paste cache, learned skills, plans, per-machine `settings.local.json`, ephemeral task/IDE state. See `.gitignore`.
 
 ## Agent workflow
 

@@ -1,10 +1,7 @@
 {
-  "enabledPlugins": {
-    "context7@claude-plugins-official": true,
-    "claude-md-management@claude-plugins-official": true
-  },
-  "effortLevel": "medium",
-  "disabledMcpjsonServers": ["grafana"],
+  "disabledMcpjsonServers": [
+    "grafana"
+  ],
   "hooks": {
     "PreToolUse": [
       {
@@ -30,5 +27,27 @@
         ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "warp@claude-code-warp": true,
+    "caveman@caveman": true,
+    "gopls-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
+    },
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    }
+  },
+  "effortLevel": "high"
 }

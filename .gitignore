@@ -30,6 +30,9 @@ ide-locks/
 # Main config (contains tokens, anonymous IDs)
 ../.claude.json
 
+# OAuth credentials
+.credentials.json
+
 # Plans (session-specific, not portable)
 plans/
 

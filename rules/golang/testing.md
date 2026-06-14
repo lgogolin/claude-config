@@ -8,24 +8,15 @@ paths:
 
 > This file extends [common/testing.md](../common/testing.md) with Go specific content.
 
-## Framework
+## Commands
 
-Use the standard `go test` with **table-driven tests**.
-
-## Race Detection
-
-Always run with the `-race` flag:
+Always run with race detection; check coverage:
 
 ```bash
 go test -race ./...
-```
-
-## Coverage
-
-```bash
 go test -cover ./...
 ```
 
 ## Reference
 
-See skill: `golang-testing` for detailed Go testing patterns and helpers.
+For testing patterns — table-driven tests, `t.Helper()`, fakes over heavy mocks, golden files in `testdata/`, `go-cmp` — see skill: `go`.

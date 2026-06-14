@@ -12,21 +12,12 @@ paths:
 
 - **gofmt** and **goimports** are mandatory — no style debates
 
-## Design Principles
+## Modern Go (target 1.22+)
 
-- Accept interfaces, return structs
-- Keep interfaces small (1-3 methods)
-
-## Error Handling
-
-Always wrap errors with context:
-
-```go
-if err != nil {
-    return fmt.Errorf("failed to create user: %w", err)
-}
-```
+- Prefer stdlib: `slices`, `maps`, `cmp`, `errors.Join`, built-in `min`/`max`, `range` over int
+- `any`, not `interface{}`
+- Never start a goroutine without a clear stop (context cancel or closed channel)
 
 ## Reference
 
-See skill: `golang-patterns` for comprehensive Go idioms and patterns.
+For idioms — accept interfaces/return structs, small interfaces, error wrapping with `%w` — see skill: `go`.

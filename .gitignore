@@ -50,6 +50,9 @@ todos/
 tasks/
 history.jsonl
 mcp-needs-auth-cache.json
+stats-cache.json
+image-cache/
+.last-cleanup
 
 # Per-machine permission allowlist
 settings.local.json

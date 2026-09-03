@@ -84,3 +84,4 @@ Brief overview of what was reviewed.
 2. **Be specific** — cite file paths and line numbers
 3. **Distinguish blockers from suggestions** — blockers must be fixed, suggestions are improvements
 4. **Check actual code** — don't trust the summary alone, read the changed files
+5. **Prioritize coverage over self-filtering** — report every issue you find, including low-confidence or low-severity ones. Do not silently drop a finding because you're unsure it's real; surface it as a SUGGESTION and note your uncertainty. It's better to raise something that gets dismissed than to miss a bug.

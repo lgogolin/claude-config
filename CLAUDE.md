@@ -11,9 +11,10 @@ This workspace uses a plan-execute-review agent loop. Follow this workflow for n
 
 ## Core Directives
 
-1. **Cross-domain awareness** — read `.claude/plans/implementation-summary.md` before starting work. A previous agent may have left context about related changes.
-2. **Architecture decisions are recorded** — check `.claude/memory/decisions.md` before proposing alternatives to established patterns.
+1. **Cross-domain awareness** — if `.claude/plans/implementation-summary.md` exists, read it before starting work. A previous agent may have left context about related changes.
+2. **Architecture decisions are recorded** — if `.claude/memory/decisions.md` exists, check it before proposing alternatives to established patterns.
 3. **Coding discipline** — follow [rules/common-discipline.md](./rules/common-discipline.md): think before coding, simplicity first, surgical changes, goal-driven execution.
+4. **Documentation discipline** — follow [rules/docs.md](./rules/docs.md): READMEs and comments use the active output style, stay inside a length budget, and every command in them must be verified.
 
 ## Routing
 

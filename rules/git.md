@@ -41,4 +41,5 @@ test(auth): add login edge case coverage
 - Component name should match the project's component structure (from CLAUDE.md if available)
 - Description in imperative mood, lowercase, no period at the end
 - Keep the first line under 72 characters
-- Add a blank line and body for non-trivial changes explaining *why*
+- Keep it minimal. Body only when the *why* isn't obvious from the subject — no summaries of what the diff already shows
+- No attribution trailers, no tool footers, no emoji (`Co-Authored-By`, `Generated with ...`). Enforced by `"includeCoAuthoredBy": false` in `~/.claude/settings.json`

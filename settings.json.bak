@@ -76,7 +76,6 @@
       }
     }
   },
-  "outputStyle": "ELI5",
   "effortLevel": "high",
   "tui": "fullscreen",
   "autoMemoryEnabled": true,
